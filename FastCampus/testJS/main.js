@@ -48,3 +48,62 @@ let fruits = ['apple', 'banana', 'cherry'];
 console.log(fruits[0]); // apple
 console.log(fruits[1]); // banana
 console.log(fruits[2]); // cherry
+
+
+/*
+DOM API
+
+(1) querySelector
+*/
+
+// let boxEl = document.querySelector('.box');
+// console.log(boxEl);
+// boxEl.addEventListener('click', function(){
+//   console.log('Click~!');
+// });
+
+// boxEl.classList.add('active');
+// let isActive = boxEl.classList.contains('active');
+// console.log(isActive); //true
+
+// boxEl.classList.remove('active');
+// let isActive = boxEl.classList.contains('active');
+// console.log(isActive); // false
+
+
+// let boxEl = document.querySelector('.box');
+// console.log(boxEl);
+// boxEl.addEventListener('click', function(){
+//   console.log('Click~!');
+//   boxEl.classList.add('active');
+//   console.log(
+//     boxEl.classList.contains('active')
+//   );
+//   boxEl.classList.remove('active');
+//   console.log(
+//     boxEl.classList.contains('active')
+//   );
+// });
+
+
+/*
+
+(2) querySelectorAll
+*/
+// const boxEls = document.querySelectorAll('.box');
+// boxEls.forEach(function (boxEl, index) {
+//   boxEl.classList.add(`order-${index +1}`);
+//   console.log(index, boxEl);
+// });
+
+/*
+
+(3) Getter, Setter
+*/
+const boxEl = document.querySelector('.box');
+
+//setter
+boxEl.textContent = 'HYEIN';
+
+//getter
+console.log(boxEl.textContent);
