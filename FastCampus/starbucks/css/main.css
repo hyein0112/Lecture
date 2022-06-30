@@ -6,8 +6,13 @@ body {
   line-height: 1.4;
   font-family: 'Nanum Gothic', sans-serif;
 }
+
 img {
   display: block;
+}
+
+a{
+  text-decoration: none;
 }
 
 /* HEADER */
@@ -15,7 +20,7 @@ header {
   background-color: royalblue;
 }
 
-header .inner{
+header .inner {
   background-color: orange;
   margin: 0 auto;
   width: 1100px;
@@ -30,5 +35,54 @@ header .logo {
   bottom: 0;
   left: 0;
   margin: auto;
+  display: none;
 }
 
+header .sub-menu {
+}
+
+header .sub-menu ul.menu {
+  display: flex;
+  font-family: Arial, sans-serif;
+}
+
+header .sub-menu ul.menu li {
+  position: relative;
+}
+
+header .sub-menu ul.menu li::before {
+  content: "";
+  width: 1px;
+  height: 12px;
+  background-color: #e5e5e5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+header .sub-menu ul.menu li:first-child::before {
+  display: none;
+}
+
+header .sub-menu ul.menu li a {
+  display: block;
+  color: #656565;
+  font-size: 12px;
+  padding: 11px 16px;
+}
+
+header .sub-menu ul.menu li a:hover {
+  color: #000;
+}
+header .sub-menu .search {
+
+}
+
+header .sub-menu .search input {
+
+}
+
+header .sub-menu .search .material-icons {
+
+}
