@@ -4,7 +4,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 0;
 }
 
 .canvas {
@@ -45,6 +44,7 @@ body {
 
 .controls__btns button:active {
   transform: scale(0.96);
+  filter: brightness(98%);
 }
 
 .controls .controls__colors {
@@ -66,10 +66,12 @@ body {
 .controls__colors .controls__color:hover {
   transform: scale(1.2);
   border-radius: 30px;
+  cursor: pointer;
 }
 
 .controls__colors .controls__color:active {
   filter: brightness(80%);
+  transform: scale(1.15);
 }
 
 .controls .controls__range {
