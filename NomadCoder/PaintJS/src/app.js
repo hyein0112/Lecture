@@ -17,9 +17,9 @@ function startPainting() {
   painting = true;
 }
 
-function onMouseMove(event) {
-  const x = event.offsetX;
-  const y = event.offsetY;
+function onMouseMove(e) {
+  const x = e.offsetX;
+  const y = e.offsetY;
   if(!painting) { 
     ctx.beginPath(); // 경로 생성
     ctx.moveTo(x, y); // 좌표를 x, y 위치로 이동 (선의 시작)
@@ -28,7 +28,6 @@ function onMouseMove(event) {
     ctx.stroke(); // 선 출력
   }
 }
-
 
 if(canvas){
   canvas.addEventListener("mousemove", onMouseMove); // 컨버스 위에서 커서가 움직일 때
