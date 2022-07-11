@@ -1,14 +1,21 @@
 const canvas = document.getElementById("jsCanvas"); // canvas
 const ctx = canvas.getContext("2d"); // context
-const colors = document.getElementsByClassName("jsColor");
+const colors = document.getElementsByClassName("jsColor");  // colors
+const range = document.getElementById("jsRange"); // brush range
+const canvasRange = document.getElementById("canvasRange"); // canvas range
+const mode = document.getElementById("jsMode"); // mode
 
-ctx.strokeStyle = "#2c2c2c"; // 선 color
-ctx.lineWidth = 2.5; // 선 두께
+const INITIAL_COLOR = "#2c2c2c";
 
 canvas.width = 700;
 canvas.height = 700;
 
+ctx.strokeStyle = INITIAL_COLOR; // 선 color
+ctx.fillStyle = INITIAL_COLOR;
+ctx.lineWidth = 2.5; // 선 두께
+
 let painting = false;
+let filling = false;
 
 function stopPainting() {
   painting = false;
@@ -33,6 +40,22 @@ function onMouseMove(e) {
 function handleColorClick(e) {
   const color = e.target.style.backgroundColor;
   ctx.strokeStyle = color;
+  ctx.fillStyle = color;
+}
+
+function handleRangeChange(e) {
+  const size = e.target.value;
+  ctx.lineWidth = size;
+}
+
+function handleModeClick(e) {
+  if(filling) {
+    filling = false;
+    mode.innerText = "Fill";
+  } else {
+    filling = true;
+    mode.innerText = "Paint"
+  }
 }
 
 if(canvas){
@@ -45,3 +68,11 @@ if(canvas){
 Array.from(colors).forEach(color => 
   color.addEventListener("click", handleColorClick)
 ); 
+
+if(range) {
+  range.addEventListener("input", handleRangeChange);
+}
+
+if(mode) {
+  mode.addEventListener("click", handleModeClick);
+}
