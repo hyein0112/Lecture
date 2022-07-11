@@ -1,5 +1,6 @@
 const canvas = document.getElementById("jsCanvas"); // canvas
 const ctx = canvas.getContext("2d"); // context
+const colors = document.getElementsByClassName("jsColor");
 
 ctx.strokeStyle = "#2c2c2c"; // 선 color
 ctx.lineWidth = 2.5; // 선 두께
@@ -29,9 +30,18 @@ function onMouseMove(e) {
   }
 }
 
+function handleColorClick(e) {
+  const color = e.target.style.backgroundColor;
+  ctx.strokeStyle = color;
+}
+
 if(canvas){
   canvas.addEventListener("mousemove", onMouseMove); // 컨버스 위에서 커서가 움직일 때
   canvas.addEventListener("mousedown", startPainting); // 컨버스를 클릭하고 있을 때
   canvas.addEventListener("mouseup", stopPainting); // 켠벼스에서 마우스 버튼을 떼었을 때
   canvas.addEventListener("mouseleave", stopPainting); // 커서가 컨버스를 벗어났을 때
 }
+
+Array.from(colors).forEach(color => 
+  color.addEventListener("click", handleColorClick)
+); 
