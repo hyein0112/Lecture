@@ -4,15 +4,15 @@ const colors = document.getElementsByClassName("jsColor");  // colors
 const range = document.getElementById("jsRange"); // brush range
 const canvasRange = document.getElementById("canvasRange"); // canvas range
 const mode = document.getElementById("jsMode"); // mode
-const saveBtn = document.getElementById("jsSave");
+const saveBtn = document.getElementById("jsSave"); // save
 
 const INITIAL_COLOR = "#2c2c2c"; // 디폴트 color
 const CANVAS_SIZE = 700; // 디폴트 size
 
-canvas.width = CANVAS_SIZE;
-canvas.height = CANVAS_SIZE;
+canvas.width = CANVAS_SIZE; // 가로 size
+canvas.height = CANVAS_SIZE; // 세로 size
 ctx.fillStyle = "white";
-ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE); // fillRect(x, y, width, height)
 
 ctx.strokeStyle = INITIAL_COLOR; // 선 color
 ctx.fillStyle = INITIAL_COLOR; // 사각형 color
@@ -77,10 +77,10 @@ function handleCM(e) {
 }
 
 function handleSaveClick() {
-  const image = canvas.toDataURL();
+  const image = canvas.toDataURL(); // 그린 그림을 문자열 형태로 변환
   const link = document.createElement("a");
-  link.href = image;
-  link.download = "PaintJS";
+  link.href = image; // 하이퍼 링크
+  link.download = "PaintJS"; // download시 파일명
   link.click();
 }
 
@@ -90,7 +90,7 @@ if(canvas){
   canvas.addEventListener("mouseup", stopPainting); // 켠벼스에서 마우스 버튼을 떼었을 때
   canvas.addEventListener("mouseleave", stopPainting); // 커서가 컨버스를 벗어났을 때
   canvas.addEventListener("click", handleCanvasClick); // 컨버스를 클릭했을 때
-  canvas.addEventListener("contextmenu", handleCM)
+  canvas.addEventListener("contextmenu", handleCM) // 컨버스를 우클릭 했을 때
 }
 
 Array.from(colors).forEach(color => 
@@ -106,5 +106,5 @@ if(mode) {
 }
 
 if(saveBtn) {
-  saveBtn.addEventListener("click", handleSaveClick);
+  saveBtn.addEventListener("click", handleSaveClick); // save 버튼을 클릭했을 때
 }
