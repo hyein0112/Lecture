@@ -63,15 +63,23 @@ body {
   transition: .2s;
 }
 
-.controls__colors .controls__color:hover {
+.controls__colors .jsColor:hover {
   transform: scale(1.2);
   border-radius: 30px;
   cursor: pointer;
 }
 
-.controls__colors .controls__color:active {
+.controls__colors .jsColor:active {
   filter: brightness(80%);
   transform: scale(1.15);
+}
+
+.controls__colors #currentColor {
+  border-radius: 10px;
+  transform: scale(1.1);
+  margin-right: 20px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.3), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: .1s;
 }
 
 .controls .controls__range {

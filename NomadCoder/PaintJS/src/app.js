@@ -5,6 +5,7 @@ const range = document.getElementById("jsRange"); // brush range
 const canvasRange = document.getElementById("canvasRange"); // canvas range
 const mode = document.getElementById("jsMode"); // mode
 const saveBtn = document.getElementById("jsSave"); // save
+const currentColor = document.getElementById("currentColor"); // current color
 
 const INITIAL_COLOR = "#2c2c2c"; // 디폴트 color
 const CANVAS_SIZE = 700; // 디폴트 size
@@ -16,6 +17,7 @@ ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE); // fillRect(x, y, width, height)
 
 ctx.strokeStyle = INITIAL_COLOR; // 선 color
 ctx.fillStyle = INITIAL_COLOR; // 사각형 color
+currentColor.style.backgroundColor = INITIAL_COLOR; // 선택된 color
 ctx.lineWidth = 2.5; // 선 두께
 
 let painting = false;
@@ -49,6 +51,7 @@ function handleColorClick(e) {
   const color = e.target.style.backgroundColor;
   ctx.strokeStyle = color;
   ctx.fillStyle = color;
+  currentColor.style.backgroundColor = color;
 }
 
 function handleRangeChange(e) {
