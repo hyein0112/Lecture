@@ -4,6 +4,8 @@ const toDoList = document.getElementById("todo-list");
 
 const toDos = [];
 
+const TODOS_KEY = "todos";
+
 function savaToDos() {
   localStorage.setItem("todos", JSON.stringify(toDos)); // localStorage에 toDos를 String 형태로 저장
 }
@@ -36,3 +38,10 @@ function handleToDoSubmit(e) {
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
+
+const savedToDos = localStorage.getItem(TODOS_KEY);
+
+if(savedToDos){
+  const parsedToDos = JSON.parse(savedToDos);
+  parsedToDos.forEach((item) => console.log("this is the turn of", item));  // 각 item 마다 console.log 실행
+}
