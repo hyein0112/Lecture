@@ -2,7 +2,7 @@ const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 
-const toDos = [];
+let toDos = [];
 
 const TODOS_KEY = "todos";
 
@@ -42,6 +42,7 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 const savedToDos = localStorage.getItem(TODOS_KEY);
 
 if(savedToDos){
-  const parsedToDos = JSON.parse(savedToDos);
-  parsedToDos.forEach((item) => console.log("this is the turn of", item));  // 각 item 마다 console.log 실행
+  const parsedToDos = JSON.parse(savedToDos);  // string을 배열 형태로 전환
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintToDo);  // 각 item 마다 console.log 실행
 }
