@@ -12,13 +12,15 @@ function savaToDos() {
 
 function deleteToDo(e) {
   const li = e.target.parentElement; // button의 부모요소를 li에 저장
+  console.log(li.id);
   li.remove(); // 요소 삭제
 }
 
 function paintToDo(newTodo) {
   const li = document.createElement("li"); // li 요소 생성
+  li.id = newTodo.id;
   const span = document.createElement("span"); // span 요소 생성
-  span.innerText = newTodo;
+  span.innerText = newTodo.text;
   const button = document.createElement("button"); // button 요소 생성
   button.innerText = "❌";
   button.addEventListener("click", deleteToDo);
@@ -32,8 +34,12 @@ function handleToDoSubmit(e) {
   e.preventDefault();
   const newTodo = toDoInput.value; // input value를 newTodo 변수에 저장
   toDoInput.value = ""; // input vlaue 삭제
-  toDos.push(newTodo);
-  paintToDo(newTodo);
+  const newTodoObj = {
+    text: newTodo,
+    id: Date.now()
+  };
+  toDos.push(newTodoObj);
+  paintToDo(newTodoObj);
   savaToDos();
 }
 
