@@ -6,14 +6,15 @@ let toDos = [];
 
 const TODOS_KEY = "todos";
 
-function savaToDos() {
-  localStorage.setItem("todos", JSON.stringify(toDos)); // localStorage에 toDos를 String 형태로 저장
+function saveToDos() {
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); // localStorage에 toDos를 String 형태로 저장
 }
 
 function deleteToDo(e) {
   const li = e.target.parentElement; // button의 부모요소를 li에 저장
-  console.log(li.id);
   li.remove(); // 요소 삭제
+  toDos = toDos.filter((item) => item.id != li.id);
+  saveToDos();
 }
 
 function paintToDo(newTodo) {
@@ -40,7 +41,7 @@ function handleToDoSubmit(e) {
   };
   toDos.push(newTodoObj);
   paintToDo(newTodoObj);
-  savaToDos();
+  saveToDos();
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
