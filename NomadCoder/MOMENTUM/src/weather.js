@@ -10,8 +10,8 @@ function onGeoOk(position) {
     const city = document.querySelector("#weather span:first-child");
     const weather = document.querySelector("#weather span:last-child");
     console.log(data.weather[0].main, weather)
-    city.innerText = data.name;
-    weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+    city.innerText = `위치: ${data.name}`;
+    weather.innerText = `상태: ${data.weather[0].main} / 온도: ${data.main.temp}`;
   }));
 }
 

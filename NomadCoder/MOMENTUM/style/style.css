@@ -1,3 +1,78 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+img {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  filter: brightness(70%);
+}
+
+input {
+  height: 30px;
+  border: none;
+  outline: none;
+  background-color: white;
+  text-shadow: none;
+  margin: 5px;
+  padding-left: 10px;
+  border-radius: 10px;
+  opacity: .9;
+}
+
+#clock {
+  font-size: 3em;
+  margin-bottom: 0px;
+}
+
+#input-name {
+  width: 230px;
+}
+
+#input-todo {
+  width: 300px;
+}
+
+#greeting {
+  font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+li {
+  text-shadow: none;
+  font-size: 18px;
+  color: white;
+}
+
+.greeting-box {
+  text-align: center;
+}
+
+
 .hidden {
   display: none;
+}
+
+#quote {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 20px;
+}
+
+#weather {
+  display: block;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  text-align: right;
 }
