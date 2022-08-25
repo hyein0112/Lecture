@@ -4,19 +4,25 @@
 </body>
 <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-<script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel;">
   const root = document.getElementById("root");
-  const btn = React.createElement("button", {
-    onMouseEnter: () => console.log('mouse enter')
-  }, "Click me");
-  const span = React.createElement(
-    "span", 
-    null,
-    "Hello I'm a span"
+  const Title = (
+    <span id="title" onMouseEnter={() => console.log("mouse enter")}>
+      Hello I'm a span
+    </span>
   );
+
+  const Button = (
+    <button style={{backgroundColor: "tomato"}} onClick={() => console.log('Clicked')}>
+      Click me
+    </button>
+  );
+
+
   const container = React.createElement("div", {
     onClick: () => console.log("Clicked")
-  }, [span, btn]);
+  }, [Title, Button]);
 
   ReactDOM.render(container, root);
 </script>
