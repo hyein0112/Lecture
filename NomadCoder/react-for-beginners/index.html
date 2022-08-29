@@ -7,23 +7,27 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel;">
   const root = document.getElementById("root");
-  const Title = (
+  const Title = () => (
     <span id="title" onMouseEnter={() => console.log("mouse enter")}>
       Hello I'm a span
     </span>
   );
 
-  const Button = (
+  const Button = () => (
     <button style={{backgroundColor: "tomato"}} onClick={() => console.log('Clicked')}>
       Click me
     </button>
   );
 
 
-  const container = React.createElement("div", {
-    onClick: () => console.log("Clicked")
-  }, [Title, Button]);
+  const Container = () => (
+    <div> 
+      <Title /> <br/>
+      <Button />
+    </div>
+  );
 
-  ReactDOM.render(container, root);
+  ReactDOM.render(<Container />, root);
 </script>
 </html>
+
